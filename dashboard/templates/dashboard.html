@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> C Lens </title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <script src="https://kit.fontawesome.com/63aabbfb2c.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- custom css file link  -->
+
+    <link rel="stylesheet" href="{% static "css/dashboard.css" %}">
+    <link rel="stylesheet" href="{% static "css/try.css" %}">
+    <link rel="stylesheet" href="{% static "css/products.css" %}">
+    <link rel="stylesheet" href="{% static "css/products_details.css" %}">
+
+
+
+
+        <script>
+        function myFunction() {
+
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+
+        }
+
+        </script>
+
+
+
+</head>
+
+<body>
+
+
+<!-- header section starts  -->
+<header class="header">
+    <div class="logo"> <img src="../static/img/c_lens_logo.png" alt="" width="140px"> </div>
+
+    <nav class="navbar">
+        <a href="http://127.0.0.1:8000/">home</a>
+        <a href="#features">features</a>
+        <a href="/product">products</a>
+        <a href="/aboutus">About us</a>
+        <a href="#review">review</a>
+    </nav>
+
+    <div class="icons" id="myTopnav" >
+        <div class="fas fa-bars" id="menu-btn"></div>
+        {% if request.user.is_authenticated %}
+            <li class="nav-item dropdown mx-2">
+                 <a class="nav-link dropdown-toggle text-black logout"  id="profiledropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     {{request.user.username|capfirst}}
+                 </a>
+                 <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                     <li><a class="dropdown-item logout" href="/user/update/{{ request.user.id }}">Profile</a></li>
+                     <li><a class="dropdown-item logout" href="/product/add">Add Product</a></li>
+                     <li><a class="dropdown-item logout" href="/user/products/{{ request.user.id }}">My Products</a></li>
+                     <li><a class="dropdown-item logout" href="/c_logout">Logout</a></li>
+                 </ul>
+             </li>
+
+            {% else %}
+            <a href="/login"><div class="fas fa-user"  id="login-btn"></div> </a>
+            <a class="logout" href="/register"> Register </a>
+        {% endif %}
+
+
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+
+    </div>
+</header>
+<!-- header section ends -->
+
+{% block content %}
+<!-- home section starts  -->
+<section class="home" id="home">
+
+    <div class="content">
+        <!-- <h3><span>Buy and sell Cameras</span> </h3> -->
+
+
+    </div>
+
+</section>
+<!-- home section ends -->
+
+
+<!-- features section starts  -->
+<section class="features" id="features">
+
+    <h1 class="heading"> our <span>features</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="../static/img/camera bag.png" alt="">
+            <h3>Sell and Buy </h3>
+            <p>Selling on C Lens is just as effortless as buying </p>
+                   </div>
+
+        <div class="box">
+            <img src="../static/img/feature-img-2.png" alt="">
+            <h3>delivery</h3>
+            <p>Fast delivery right where you want it</p>
+
+        </div>
+
+        <div class="box">
+            <img src="../static/img/feature-img-3.png" alt="">
+            <h3>fast payments</h3>
+            <p>Cash on delivery  </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- features section ends -->
+
+
+<!-- products section starts  -->
+<section class="features" id="features">
+
+    <h1 class="heading"> our <span>Patners</span> </h1>
+    <div class="box-container">
+
+        <div class="box">
+            <img src="../static/img/sol.jpeg" alt="">
+            <h3>SOLS 24/7</h3>
+            <p>SOLS 24/7 envisions that people from all communities – regardless of race, religion or gender – will have access to education and social empowerment services, resulting in developed societies with equal opportunities for all</p>
+            <a href="https://www.sols247.org/about-us" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="../static/img/awm.jpeg" alt="">
+            <h3>AWAM</h3>
+            <p>AWAM is a 37-year-old independent feminist organisation committed to improving the lives of all persons, particularly women in Malaysia. We advocate for gender, women's rights and gender equality; and against all forms of gender-based violence (GBV).</p>
+            <a href="https://www.facebook.com/AWAMMalaysia/?ref=page_internal" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="../static/img/unicef.jpeg" alt="">
+            <h3>UNICEF Malaysia</h3>
+            <p>UNICEF Malaysia has helped achieve improvements in health, nutrition, water and sanitation, formal and informal education as well as welfare services for children in rural and poor urban areas.</p>
+            <a href="https://www.unicef.org/malaysia/" class="btn">read more</a>
+        </div>
+
+    </div>
+
+
+</section>
+<!-- products section ends -->
+
+
+<!-- categories section starts  -->
+<section class="categories" id="categories">
+
+    <h1 class="heading"> product <span>availabe</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="../static/img/sony_with_lens_.jpg" alt="">
+            <h3>Sony Camera with Lens</h3>
+            <p>upto 23% off</p>
+            <a href="/product" class="btn">shop now</a>
+        </div>
+
+        <div class="box">
+            <img src="../static/img/sony-a7c-review-best-travel-camera-main-image-op.webp" alt="">
+            <h3> Vintage Camera </h3>
+            <p>upto 5% off</p>
+            <a href="/product" class="btn">shop now</a>
+        </div>
+
+        <div class="box">
+            <img src="../static/img/canon_24-70_lens.jpg" alt="">
+            <h3> 24 - 70 mm lens </h3>
+            <p>upto 15% off</p>
+            <a href="product" class="btn">shop now</a>
+        </div>
+
+        <div class="box">
+            <img src="../static/img/canon_r6.jpg" alt="">
+            <h3>Canon Cameras</h3>
+            <p>upto 10% off</p>
+            <a href="/product" class="btn">shop now</a>
+        </div>
+
+    </div>
+
+</section>
+<!-- categories section ends -->
+
+
+<!-- review section starts  -->
+<section class="review" id="review">
+
+    <h1 class="heading"> customer's <span>review</span> </h1>
+
+    <div class="swiper review-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="../static/img/pic-1.png" alt="">
+                <p>Great iniative !</p>
+                <h3>john deo</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="../static/img/pic-2.png" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime ad tempore quasi tenetur.</p>
+                <h3>john deo</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="../static/img/pic-3.png" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime ad tempore quasi tenetur.</p>
+                <h3>john deo</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="../static/img/pic-4.png" alt="">
+                <p>  </p>
+                <h3>john deo</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- review section ends -->
+
+
+
+{% endblock %}
+<!-- footer section starts  -->
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3> C LENS  <i class=""></i> </h3>
+            <p></p>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +01 56789032 </a>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +977 9813251336</a>
+            <a href="#" class="links"> <i class="fas fa-envelope"></i> Clens@gmail.com </a>
+            <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal -  </a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#" class="links"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="#features" class="links"> <i class="fas fa-arrow-right"></i> features </a>
+            <a href="/product" class="links"> <i class="fas fa-arrow-right"></i> products </a>
+            <a href="#review" class="links"> <i class="fas fa-arrow-right"></i> review </a>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="credit"> created by <span> Prasesh Dangol </span> | all rights reserved </div>
+
+</section>
+<!-- footer section ends -->
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="{% static 'js/dashboard.js' %}"></script>
+
+</body>
+</html>

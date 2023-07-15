@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+ $(document).ready(function(){
+    $('.button').click(function(){
+        $('.alert').show()
+    })
+});
+
+</script>
+
+    <section class="game-section ">
+  <div class="container">
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        {% for msg in messages %}
+            swal('{{ msg }}');
+        {% endfor %}
+
+    </script>
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title> Login Form </title>
+         {% load static %}
+      <link rel="stylesheet" href="{% static 'css/login.css' %}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <div class="center">
+         <div class="container">
+            <div class="text">
+              Login
+            </div>
+            <form action="" method='post'>
+                {% csrf_token %}
+               <div class="data">
+                  <label>User</label>
+                  <input type="text" name="uname"  required >
+               </div>
+               <div class="data">
+                  <label>Password</label>
+                  <input type="password" name="pswd" required>
+               </div>
+               <div class="forgot-pass">
+                  <a href="/password_reset">Forgot Password?</a>
+               </div>
+               <div class="btnn">
+                  <div class="inner"></div>
+                  <button type="submit" name="login">login</button>
+               </div>
+               <div class="signup-link">
+                  Not a member? <a href='/register'>Signup now</a>
+               </div>
+
+
+            </form>
+
+         </div>
+
+      </div>
+     </body>
+        </html>
+
+  </div>
+    </section>
