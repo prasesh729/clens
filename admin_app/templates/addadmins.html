@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../static/css/bootstrap.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="../static/css/admin_register.css">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="button">
+
+        </div>
+	<div class="header">
+		<h2> Admin Form </h2>
+	</div>
+
+    <div class="close">+</div>
+	<form id="form" class="form"  method='post'>
+        {% csrf_token %}
+		<div class="form-control">
+			<label for="First Name">First Name</label>
+			<input type="text" placeholder="First Name " id="f_name" name="f_name"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="Last Name">Last Name</label>
+			<input type="text" placeholder="Last Name" id="l_name" name="l_name"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="username">Username</label>
+			<input type="text" placeholder="username " id="username" name="uname"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="Email">Email</label>
+			<input type="text" placeholder="Email " id="Email" name="Email"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="username">Mobile No</label>
+			<input type="text" placeholder="Mobile No" id="Mobile No" name="Mobile_no"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="username"> Password</label>
+			<input type="password" placeholder="Password" id="password" name="pswd"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="username">Confirm Password </label>
+			<input type="password" placeholder="Confirm Password" id="password2" name="pswd2"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div>
+            <button type ="submit" value="submit">Submit</button>
+        </div>
+
+
+	</form>
+</div>
+
+
+
+</body>
+</html>
