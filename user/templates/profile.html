@@ -1,0 +1,100 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+
+<script>
+ $(document).ready(function(){
+    $('.button').click(function(){
+        $('.alert').show()
+    })
+});
+
+</script>
+
+    <section class="game-section ">
+  <div class="container">
+    <div class="alert alert-success ">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Success!</strong> The item has been added to your cart
+    </div>
+    <style>
+      .alert{
+        display:none;
+      }
+    </style>
+
+    <style>
+h4{
+    font-size: 25px;
+}
+
+.container{
+    border: #0a53be;
+    border-radius: 30px ;
+}
+
+input[type="password"]{
+    font-size: 17px;
+}
+
+input[type="text"]{
+    font-size: 17px;
+}
+
+label{
+    font-size:20px;
+}
+span{
+    font-size: 25px;
+}
+
+input{
+    font-size:20px
+}
+
+
+</style>
+
+
+<div class="container">
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-2" src="" >
+                <span class="font-weight-bold">Welcome {{ request.user }}</span><span class="text-black-50"></span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <form action="/user/update/{{ customers.id }}" method="post">
+                    {% csrf_token %}
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">First Name</label>
+                            <input type="text" class="form-control" name="first_name" placeholder="first name" value="{{ customers.first_name }}"></div>
+                        <div class="col-md-6"><label class="labels">Last Name</label>
+                            <input type="text" class="form-control" name="last_name" value="{{ customers.last_name }}" placeholder="lastname"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Username</label>
+                            <input type="text" class="form-control" name="username" placeholder="username" value="{{ customers.username }}"></div>
+                        <div class="col-md-12"><label class="labels">Email</label>
+                            <input type="text" class="form-control" placeholder="Email" name="email" value="{{ customers.email }}"></div>
+
+
+
+                    </div>
+                    <div class="mt-5 text-center">
+                        <input type="submit" class="button" value="saveprofile">
+                    </div>
+            </form>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+    </div>
+  </div>
+    </section>
+{% endblock  %}
