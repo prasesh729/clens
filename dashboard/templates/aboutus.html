@@ -1,0 +1,93 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+
+ <style>
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans",sans-serif;
+    box-sizing: border-box;
+}
+
+
+
+.aboutt-section{
+    background: url(https://images.pexels.com/photos/2179205/pexels-photo-2179205.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat left;
+    background-size: 55%;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.innerr-container{
+    width: 55%;
+    float: right;
+    background-color: #fdfdfd;
+    padding: 150px;
+}
+
+.innerr-container h1{
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.text{
+    font-size: 13px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+.skills{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+@media screen and (max-width:1200px){
+    .inner-container{
+        padding: 80px;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .about-section{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    .inner-container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px){
+    .about-section{
+        padding: 0;
+    }
+    .inner-container{
+        padding: 60px;
+    }
+}
+    </style>
+
+<div class="aboutt-section">
+  <div class="innerr-container">
+    <h1>About Us</h1>
+    <p class="text">
+        Welcome to C Lens, the premier destination for second-hand e-commerce! At C Lens, we believe in the power of giving pre-loved products a new lease on life. Our innovative platform provides a seamless and secure marketplace for buying and selling a wide range of products, catering to the needs and desires of our diverse community.
+
+        Selling on C Lens is just as effortless as buying. List your items with detailed descriptions, high-quality images, and fair pricing, attracting interested buyers who share your passion for sustainable consumption. Our user-friendly interface streamlines the selling process, providing you with tools to manage your inventory and communicate seamlessly with potential customers.At C Lens, we also prioritize sustainability and the reduction of waste. By promoting the reuse of products, we contribute to a more circular economy, reducing the strain on the environment and minimizing the carbon footprint associated with manufacturing new goods. Join us in our commitment to creating a more sustainable future, one transaction at a time.
+        
+        Discover the joy of finding unique treasures, connecting with like-minded individuals, and making a positive impact on our planet. Join the C Lens community today and embark on a journey of endless possibilities, where the allure of second-hand shopping awaits you.
+    </p>
+    <div class="skills">
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

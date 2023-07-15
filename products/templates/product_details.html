@@ -1,0 +1,131 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+
+<div class="single-product">
+    <div class="container">
+        <div class="row">
+                <div class="col-2">
+                <img src="/static/assets/{{ single_product.p_image}}" width="100%">
+                </div>
+                <div class="col-2">
+                <h1>{{ single_product.p_name}}</h1>
+
+                <h33>Amount to purchase:</h33>
+                <input type="number" value="1" min="0">
+                    <br>
+                    <h33>Rs {{ single_product.p_price}}</h33>
+                 <form action="" method="POST">
+                    {% csrf_token %}
+                    <input hidden type="text" name ="product" value="{{ single_product.product_id}}">
+                   <a href="/product/purchase/{{  single_product.product_id }}"><input  type="submit"  class="btn_d" value="Add to cart"></a>
+                </form>
+                    <br>
+                    <br>
+
+                <h33> Product Details <i class="fa fa-indent"></i></h33>
+                <br>
+                <p>{{ single_product.p_description}}</p>
+                </div>
+                </div>
+            <!-------title------->
+            <div class="row row-2">
+                <h2>Related Products</h2>
+                <p class="pq">View more</p>
+            </div>
+ </div>
+        <!-- <div class="small_container"---->
+        <section class="menu">
+            <div class="box-container">
+
+                <div class="box">
+                <div class="image">
+                    <img src="../../dashboard/static/img/menu-1.jpg" alt="">
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+                <div class="content">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <h3>delicious food</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
+                    <form action="/" method="POST">
+                    <a href="#" type="submit" class="btnn">add to cart</a>
+
+                    <span class="price">$12.99</span>
+                    </form>
+                </div>
+            </div>
+
+                <div class="box">
+                <div class="image">
+                    <img src="../../dashboard/static/img/menu-2.jpg" alt="">
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+                <div class="content">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <h3>delicious food</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
+                    <a href="#" class="btnn">add to cart</a>
+                    <span class="price">$12.99</span>
+                </div>
+            </div>
+
+                <div class="box">
+                <div class="image">
+                    <img src="../../dashboard/static/img/menu-3.jpg" alt="">
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+                <div class="content">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <h3>delicious food</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
+                    <a href="#" class="btnn">add to cart</a>
+                    <span class="price">$12.99</span>
+                </div>
+            </div>
+
+                <div class="box">
+                <div class="image">
+                    <img src="../../dashboard/static/img/menu-4.jpg" alt="">
+                    <a href="#" class="fas fa-heart"></a>
+                </div>
+                <div class="content">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <h3>delicious food</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
+                    <a href="#" class="btnn">add to cart</a>
+                    <span class="price">$12.99</span>
+                </div>
+            </div>
+
+            </div>
+        </section>
+        </div>
+
+
+
+
+{% endblock %}

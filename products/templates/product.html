@@ -1,0 +1,90 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+
+
+<section class="menu">
+    <h1 class="heading2"> our <span>products</span> </h1>
+
+     <div class="row1">
+        <h21>All Products</h21>
+{#        <select class="sel" >#}
+{#            {% for i in category_Set.all %}#}
+{#            <a href ='/?category={{ i.id }}'><option>{{i.name}}</option></a>#}
+{#            {% endfor %}#}
+{##}
+{#        </select>#}
+     </div>
+
+    <div class="box-container row">
+        {% for product in products %}
+        <div class="box">
+            <div class="image">
+                <a href="#"><img src="/static/assets/{{ product.p_image}}" alt=""></a>
+
+            </div>
+            <div class="content">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h3>{{ product.p_name }}</h3>
+                <p>{{ product.p_description }}</p>
+                <a href="/product/purchase/{{  product.product_id }}" class="btnn">purchase</a><br>
+                <span class="price">Rs {{ product.p_price }} </span>
+            </div>
+        </br>
+        </div>
+        {% endfor %}
+
+    <!-- PAGINATION STARTS -->
+            <nav aria-label="..." class="container pt-5">
+            {% if products.has_other_pages %}
+            <ul class="pagination">
+            {% if products.has_previous %}
+            <li class="page-item">
+            <a class="page-link" href="?page={{ products.previous_page_number }}"><i
+            class="fas fa-angle-left"></i></a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+            <a class="page-link"><i class="fas fa-angle-left"></i></a>
+            </li>
+            {% endif %}
+
+
+
+            {% for i in products.paginator.page_range %}
+            {% if users.number == i %}
+            <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+            {% endif %}
+            {% endfor %}
+
+
+
+            {% if products.has_next %}
+            <li class="page-item">
+            <a class="page-link" href="?page={{ products.next_page_number }}"><i
+            class="fas fa-angle-right"></i></a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+            <a class="page-link"><i class="fas fa-angle-right"></i></a>
+            </li>
+            {% endif %}
+            </ul>
+            {% endif %}
+            </nav>
+<!-- PAGINATION ENDS -->
+
+    </div>
+
+</section>
+
+
+{% endblock %}
