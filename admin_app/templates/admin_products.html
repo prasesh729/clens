@@ -1,0 +1,179 @@
+{% extends "admin_dashboard.html" %}
+
+{% block context %}
+
+    <div class="content">
+        <div class="name"><h4> Hello {{ request.user.username}} </h4></div>
+        <h2>ALL PRODUCTS</h2>
+        <div class="right_area">
+{#        <a href="#" class="add_new_btn" id="product_btn">Add new Product</a>#}
+      </div>
+            <table class="table table-dark table-hover">
+                  <thead>
+                        <tr>
+                            <th scope="col">P_ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Product Image</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Action</th>
+
+                        </tr>
+                  </thead>
+                  <tbody>
+                  {% for p in product %}
+                    <tr>
+                      <th scope="row">{{p.product_id}}</th>
+                      <td>{{p.p_name}}</td>
+                        {% load static %}
+                     <td><img width="100" src="{% static 'assets/' %}{{ p.p_image }}"></td>
+                        <td>{{p.p_quantity}}</td>
+                    <td>{{p.p_category}}</td>
+                        <td>{{p.p_price}}</td>
+                    <td>
+                        <a href="/admin/update_p/{{ p.product_id  }}"><i class="fas fa-edit" style="color: orange"></i></a>
+                        <a href="pdelete/{{ p.product_id }}"><i class="fas fa-trash-alt" style="color: red"></i></a>
+                    </td>
+
+                    </tr>
+
+                  {% endfor %}
+                  </tbody>
+                </table>
+
+    </div>
+
+    <!----------------------------new poping register window--------------->
+    <div class="bg-modal">
+    <div class="modal-content">
+        <div class="close">+</div>
+        <form id="form" class="form"  method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+            <h4 class="h44">Add New Products </h4>
+            <div class="form-control">
+			<label for="Product Name">Product Name</label>
+			<input type="text" placeholder="Product Name" id="f_name" name="p_name"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="Category">Category</label>
+			<input type="text" placeholder="Category" id="l_name" name="p_category"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="Product Description">Product Description</label>
+			<input type="text" placeholder="Product Description " id="username" name="p_description"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="Quantity">Quantity</label>
+			<input type="text" placeholder="Quantity " id="" name="quantity"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="Price">Price</label>
+			<input type="text" placeholder="Price" id="" name="p_price"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+
+		<div class="form-control">
+			<label for="username">Product Image </label>
+			<input type="file" placeholder="Product Image" id="Image" name="p_image"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div>
+            <button type ="submit" value="submit">Submit</button>
+        </div>
+
+	</form>
+    </div>
+
+    </div>
+
+
+<!------------------------------------------edit modal form---------------------->
+    <div class="bg-modal-1">
+    <div class="modal-content">
+        <div class="close"><a href="javascript:void(0);" id="product_edit_btn" onclick="clicko()"></a>+</div>
+        <form id="form" class="form"  method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+            <h4 class="h44"> Products </h4>
+            <div class="form-control">
+			<label for="Product Name">Product Name</label>
+			<input type="text" value="{{ product.p_name }}" placeholder="Product Name" id="f_name" name="p_name"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="Category">Category</label>
+			<input type="text" value="{{ product.p_name }}" placeholder="Category" id="l_name" name="p_category"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="Product Description">Product Description</label>
+			<input type="text" value="{{ product.p_name }}" placeholder="Product Description " id="username" name="p_description"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="Quantity">Quantity</label>
+			<input type="text" value="{{ product.p_name }}" placeholder="Quantity " id="" name="quantity"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="Price">Price</label>
+			<input type="text" value="{{ product.p_name }}" placeholder="Price" id="" name="p_price"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+
+		<div class="form-control">
+			<label for="username">Product Image </label>
+			<input type="file" value="{{ product.p_image }}" placeholder="Product Image" id="Image" name="p_image"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div>
+            <button type ="submit" value="submit">Submit</button>
+        </div>
+
+	</form>
+    </div>
+    </div>
+
+<script>
+function Click(){
+       document.querySelector('.bg-modal-1').style.display='flex';
+
+}
+</script>
+
+    <script>
+        function clicko(){
+   document.querySelector('.bg-modal-1').style.display ='none';
+}
+</script>
+{% endblock %}
+
+

@@ -1,0 +1,113 @@
+
+{% extends "admin_dashboard.html" %}
+
+{% block context %}
+
+    <div class="content">
+        <div class="name"><h4> Hello {{ request.user.username}}</h4></div>
+        <h2>Customers</h2>
+        <div class="right_area">
+        <a href="#" id="customer_btn" class="add_new_btn">Add new Customer</a>
+      </div>
+            <table class="table table-dark table-hover">
+                  <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Firstname</th>
+                            <th scope="col">Lastname</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Action</th>
+
+                        </tr>
+                  </thead>
+                  <tbody>
+                  {% for customers in customer %}
+                    <tr>
+                        <th scope="row">{{customers.id}}</th>
+                        <td>{{customers.first_name}}</td>
+                        <td>{{customers.last_name}}</td>
+                        <td>{{customers.username}}</td>
+                        <td>{{customers.email}}</td>
+                        <td>
+                        <a href="/admin/update_c/{{ customers.id  }}"><i class="fas fa-user-edit"  style="color: orange"></i></a>
+                        <a href="c_delete/{{ customers.id }}"><i class="fas fa-trash-alt" style="color: red"></i></a>
+                        </td>
+                    </tr>
+
+                  {% endfor %}
+                  </tbody>
+                </table>
+    </div>
+
+    <!----------------------------new poping register window--------------->
+     <div class="bg-modal">
+    <div class="modal-content">
+        <div class="close">+</div>
+        <form id="form" class="form"  method='post'>
+        {% csrf_token %}
+            <h4 class="h44"> New Customer </h4>
+            <div class="form-control">
+			<label for="First Name">First Name</label>
+			<input type="text" placeholder="First Name " id="f_name" name="f_name"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="Last Name">Last Name</label>
+			<input type="text" placeholder="Last Name" id="l_name" name="l_name"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="username">Username</label>
+			<input type="text" placeholder="User Name " id="Username" name="uname"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="Email">Email</label>
+			<input type="text" placeholder="Email " id="Email" name="Email"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="username">Mobile No</label>
+			<input type="text" placeholder="Mobile No" id="Mobile No" name="Mobile_no"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+            <div class="form-control">
+			<label for="username"> Address </label>
+			<input type="text" placeholder="Address" id="Address" name="address"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+			<label for="username"> Password</label>
+			<input type="password" placeholder="Password" id="password" name="pswd"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="username">Confirm Password </label>
+			<input type="password" placeholder="Confirm Password" id="password2" name="pswd2"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div>
+            <button type ="submit" value="submit">Submit</button>
+        </div>
+	</form>
+    </div>
+    </div>
+{% endblock %}
+
