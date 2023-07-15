@@ -1,0 +1,96 @@
+.heading2{
+    text-align: center;
+    padding:2rem 0;
+    padding-bottom: 3rem;
+    font-size: 3.5rem;
+    color:var(--black);
+    padding-top: 100px;
+    font-weight: bold;
+}
+h21{
+    font-size: 28px;
+    font-weight: 600;
+}
+.sel{
+    float: right;
+    font-size: 15px;
+}
+select{
+    height: 30px;
+}
+.heading2 span {
+    background: var(--orange);
+    color: #fff;
+    display: inline-block;
+    padding: .5rem 3rem;
+
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+
+}
+
+.page-btn{
+	margin:0 auto 20px;
+    padding-top: 44px;
+}
+
+.h24{
+    font-size: 50px;
+}
+.page-btn span{
+	display:inline-block;
+	border:1px solid rgb(25 56 86);
+	margin-left:10px;
+	width:40px;
+	height:43px;
+	text-align:Center;
+	line-height:40px;
+	cursor:pointer;
+    font-size: 18px;
+
+
+}
+
+.page-btn span:hover{
+	background:green;
+	color:#fff;
+}
+
+.bg-modal {
+	background-color: rgba(0, 0, 0, 0.8);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-contents {
+	height: 300px;
+	width: 500px;
+	background-color: white;
+	text-align: center;
+	padding: 20px;
+	position: relative;
+	border-radius: 4px;
+}
+
+input {
+	margin: 15px auto;
+	display: block;
+	width: 50%;
+	padding: 8px;
+	border: 1px solid gray;
+}
+
+.close {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 42px;
+	color: #333;
+	transform: rotate(45deg);
+	cursor: pointer;
+
+}
