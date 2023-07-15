@@ -1,0 +1,58 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+
+    <style>
+    h2{
+        font-size: 30px;
+    }
+
+    th{
+        font-size: 18px;
+    }
+
+    td{
+        font-size: 16px;
+        font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    }
+
+    </style>
+
+<div class="container">
+    <div class="content">
+        <h2>MY PRODUCTS</h2>
+        <div class="right_area">
+      </div>
+            <table class="table table-dark table-hover">
+                  <thead>
+                        <tr>
+                            <th scope="col">Product ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                  </thead>
+                  <tbody>
+                  {% for p in product %}
+                    <tr>
+                      <th scope="row">{{p.product_id}}</th>
+                      <td>{{p.p_name}}</td>
+                        {% load static %}
+                     <td><img width="100" src="{% static 'assets/' %}{{ p.p_image }}"></td>
+                        <td>{{p.p_quantity}}</td>
+                    <td>{{p.p_category}}</td>
+                        <td>{{p.p_price}}</td>
+                    <td>
+                        <a href="/product/update/{{ p.product_id }}"><i class="fas fa-edit" style="color: orange"></i></a>
+                        <a href="/product/delete/{{ p.product_id }}"><i class="fas fa-trash-alt" style="color: red"></i></a>
+                    </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+
+      </div>
+</div>
+{% endblock %}
