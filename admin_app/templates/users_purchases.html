@@ -1,0 +1,42 @@
+{% extends "admin_dashboard.html" %}
+
+{% block context %}
+
+
+    <div class="content">
+        <div class="name"><h4> Hello {{ request.user.username}}</h4></div>
+        <h2>Booking</h2>
+        <div class="right_area">
+
+      </div>
+            <table class="table table-dark table-hover">
+                  <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Phone No</th>
+                            <th scope="col">Delivery Address</th>
+
+                        </tr>
+                  </thead>
+                  <tbody>
+                  {% for purchases in purchases %}
+                    <tr>
+                        <th scope="row">{{purchases.Mbooking_id}}</th>
+                        <td>{{purchases.your_name}}</td>
+                        <td>{{purchases.address}}</td>
+                        <td>{{purchases.date}}</td>
+                        <td>{{purchases.phone_number}}</td>
+                        <td>{{purchases.location}}</td>
+
+                    </tr>
+
+                  {% endfor %}
+                  </tbody>
+                </table>
+    </div>
+
+
+{% endblock %}

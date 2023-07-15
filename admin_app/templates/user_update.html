@@ -1,0 +1,64 @@
+{% extends "admin_dashboard.html" %}
+{% load bootstrap %}
+
+{% block context %}
+
+
+    <div class="bg-modal-3 bg">
+    <div class="modal-content">
+
+        <form id="form" class="form"  method='post'>
+        {% csrf_token %}
+            <h4 class="h44"> Profile </h4>
+            {{ profile_form|bootstrap_horizontal }}
+{#            <div class="form-control">#}
+{#			<label for="First Name">First Name</label>#}
+{#			<input type="text" placeholder="First Name " id="f_name" name="f_name" value={{ admin.id }}>#}
+{#			<i class="fas fa-check-circle"></i>#}
+{#			<i class="fas fa-exclamation-circle"></i>#}
+{#			<small>Error message</small>#}
+{#		</div>#}
+{#        <div class="form-control">#}
+{#			<label for="Last Name">Last Name</label>#}
+{#			<input type="text" placeholder="Last Name" id="l_name" name="l_name" value={{ admin.last_name }}>#}
+{#			<i class="fas fa-check-circle"></i>#}
+{#			<i class="fas fa-exclamation-circle"></i>#}
+{#			<small>Error message</small>#}
+{#		</div>#}
+{#        <div class="form-control">#}
+{#			<label for="username">Username</label>#}
+{#			<input type="text" placeholder="User Name " id="Username" name="uname" value={{ admin.username }}>#}
+{#			<i class="fas fa-check-circle"></i>#}
+{#			<i class="fas fa-exclamation-circle"></i>#}
+{#			<small>Error message</small>#}
+{#		</div>#}
+{#        <div class="form-control">#}
+{#			<label for="Email">Email</label>#}
+{#			<input type="text" placeholder="Email " id="Email" name="Email" value={{ admin.email }}>#}
+{#			<i class="fas fa-check-circle"></i>#}
+{#			<i class="fas fa-exclamation-circle"></i>#}
+{#			<small>Error message</small>#}
+{#		</div>#}
+{##}
+{#        <div class="form-control">#}
+{#			<label for="username"> Password</label>#}
+{#			<input type="password" placeholder="Password" id="password" name="pswd"/>#}
+{#			<i class="fas fa-check-circle"></i>#}
+{#			<i class="fas fa-exclamation-circle"></i>#}
+{#			<small>Error message</small>#}
+{#		</div>#}
+{#		<div class="form-control">#}
+{#			<label for="username">Confirm Password </label>#}
+{#			<input type="password" placeholder="Confirm Password" id="password2" name="pswd2"/>#}
+{#			<i class="fas fa-check-circle"></i>#}
+{#			<i class="fas fa-exclamation-circle"></i>#}
+{#			<small>Error message</small>#}
+{#		</div>#}
+        <div>
+            <button type ="submit" value="submit">Submit</button>
+        </div>
+	</form>
+    </div>
+    </div>
+
+{% endblock %}
