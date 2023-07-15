@@ -1,0 +1,151 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        {% for msg in messages %}
+            swal('{{ msg }}');
+        {% endfor %}
+
+    </script>
+
+
+    <style>
+    span{
+        padding-bottom: 10px;
+    }
+    </style>
+<style>
+h4{
+    font-size: 25px;
+}
+
+.container{
+    border: #0a53be;
+    border-radius: 30px ;
+}
+
+input[type="date"]{
+    font-size: 17px;
+}
+
+input[type="text"]{
+    font-size: 17px;
+}
+
+label{
+    font-size:20px;
+}
+
+input{
+    font-size:20px
+}
+
+.bg-modal {
+	background-color: rgba(0, 0, 0, 0.8);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-contents {
+	height: 300px;
+	width: 500px;
+	background-color: white;
+	text-align: center;
+	padding: 20px;
+	position: relative;
+	border-radius: 4px;
+}
+
+input {
+	margin: 15px auto;
+	display: block;
+	width: 50%;
+	padding: 8px;
+	border: 1px solid gray;
+}
+
+.close {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 42px;
+	color: #333;
+	transform: rotate(45deg);
+	cursor: pointer;
+
+}
+
+
+</style>
+
+
+<div class="container">
+<div class=" container rounded bg-grey mt-8 mb-5">
+    <div class="row">
+        <form class="col-md-5 border" method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-center"> PURCHASE </h4>
+                </div>
+                    <div class="col-md-12"><label class="labels">Product ID</label>
+                        <input type="text"  class="form-control" placeholder="Full Name" name="product_name" value="{{products.product_id}}"></div>
+
+                    <div class="col-md-12"><label class="labels">Full Name</label>
+                        <input type="text" class="form-control" placeholder="Full Name" name="your_name" value=""></div>
+
+                    <div class="col-md-12"><label class="labels">Phone no</label>
+                        <input type="text" class="form-control" placeholder="Phone no" name="phone_number" value=""></div>
+
+                    <div class="col-md-12"><label class="labels">Email</label>
+                        <input type="text" class="form-control" placeholder="Email" name="address" value=""></div>
+
+                     <div class="col-md-12"><label class="labels">Date</label>
+                        <input type="date" class="form-control" placeholder="Date" name="date" value=""></div>
+
+                    <div class="col-md-12"><label class="labels">Delivery Address</label>
+                        <input type="text" class="form-control" placeholder="Address" name="location" value=""></div>
+
+
+                        <input type="hidden"  name="user_id" value="{{ request.user.id }}"/>
+
+
+                <div class="mt-5 "><button class="btn btn-primary profile-button" type="submit" value="purchase"> Purchase </button></div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+</div>
+
+    <!----------------------------new poping register window--------------->
+<div class="bg-modal">
+	<div class="modal-contents">
+
+		<div class="close">+</div>
+		<img src="https://richardmiddleton.me/comic-100.png" alt="">
+
+		<div>alu</div>
+
+	</div>
+</div>
+
+<script>
+document.getElementById('button').addEventListener("click", function() {
+	document.querySelector('.bg-modal').style.display = "flex";
+});
+
+document.querySelector('.close').addEventListener("click", function() {
+	document.querySelector('.bg-modal').style.display = "none";
+});
+
+</script>
+{% endblock %}

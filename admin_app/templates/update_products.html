@@ -1,0 +1,78 @@
+{% extends "admin_dashboard.html" %}
+{% load bootstrap %}
+
+
+{% block context %}
+<style>
+    .form .form-group #p_image-clear_id{
+	display: none;
+
+}
+#id_user_id{
+    display: none;
+}
+</style>
+
+   <div class="bg-modal-3 bg">
+    <div class="modal-content">
+
+        <form id="form" class="form"  method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+            <h4 class="h44">Add New Products </h4>
+            {{ product_form|bootstrap_horizontal }}
+
+{#            <div class="form-control">#}
+{#			<label for="Product Name">Product Name</label>#}
+{#			<input type="text" placeholder="Product Name" id="f_name" name="p_name" value={{ products.p_name }}>#}
+{#			<i class="fas fa-check-circle"></i>#}
+{#			<i class="fas fa-exclamation-circle"></i>#}
+{#			<small>Error message</small>#}
+{#		</div>#}
+{#        <div class="form-control">#}
+{#			<label for="Category">Category</label>#}
+{#			<input type="text" placeholder="Category" id="l_name" name="p_category" value={{ products.p_category }} >#}
+{#			<i class="fas fa-check-circle"></i>#}
+{#			<i class="fas fa-exclamation-circle"></i>#}
+{#			<small>Error message</small>#}
+{#		</div>#}
+{#        <div class="form-control">#}
+{#			<label for="Product Description">Product Description</label>#}
+{#			<input type="text" placeholder="Product Description " id="username" value={{ products.p_description }} name="p_description"/>#}
+{#			<i class="fas fa-check-circle"></i>#}
+{#			<i class="fas fa-exclamation-circle"></i>#}
+{#			<small>Error message</small>#}
+{#		</div>#}
+{#        <div class="form-control">#}
+{#			<label for="Quantity">Quantity</label>#}
+{#			<input type="text" placeholder="Quantity " id="" value={{ products.p_quantity }} name="quantity"/>#}
+{#			<i class="fas fa-check-circle"></i>#}
+{#			<i class="fas fa-exclamation-circle"></i>#}
+{#			<small>Error message</small>#}
+{#		</div>#}
+{#		<div class="form-control">#}
+{#			<label for="Price">Price</label>#}
+{#			<input type="text" placeholder="Price" id="" value={{ products.p_price }} name="p_price"/>#}
+{#			<i class="fas fa-check-circle"></i>#}
+{#			<i class="fas fa-exclamation-circle"></i>#}
+{#			<small>Error message</small>#}
+{#		</div>#}
+{##}
+{#		<div class="form-control">#}
+{#			<label for="username">Product Image </label>#}
+{#			<input type="file" placeholder="Product Image" id="Image" name="p_image"/>#}
+{#			<i class="fas fa-check-circle"></i>#}
+{#			<i class="fas fa-exclamation-circle"></i>#}
+{#			<small>Error message</small>#}
+{#		</div>#}
+        <div>
+            <button type ="submit" value="submit">Submit</button>
+        </div>
+
+	</form>
+    </div>
+
+    </div>
+
+
+
+{% endblock %}
